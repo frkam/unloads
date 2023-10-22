@@ -1,0 +1,32 @@
+.unload-page {
+    position: relative;
+    z-index: 2;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    display: grid;
+    gap: 15px;
+    grid-template-areas: 
+        "title"
+        "unload"
+        "tasks";
+
+    @include start-at(xslg) {
+        grid-template-areas: "title unload" "tasks unload";
+        grid-template-columns: 35% 1fr;
+    }
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__unload {
+        grid-area: unload;
+        height: fit-content;
+    }
+
+    &__tasks {
+        grid-area: tasks;
+    }
+}

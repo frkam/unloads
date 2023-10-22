@@ -135,7 +135,7 @@ const list = reactive([
       event: false,
       classIcon: "far fa-dolly-flatbed-alt",
       title: "Выгрузки",
-      href: "/manager/unload"
+      href: "/manager?section=unload"
     }
   },
   {

@@ -1,0 +1,19 @@
+.page-title {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        font-size: 18px * $tem;
+
+        @include start-at(xslg) {
+            font-size: 20px * $tem;
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+}
