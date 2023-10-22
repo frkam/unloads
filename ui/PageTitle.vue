@@ -1,7 +1,7 @@
 <template>
-    <div class="page-title block color gray">
+    <div class="page-title block">
         <h1 class="page-title__header text-bold">{{ title }}</h1>
-        <p class="text-14 text-bold">Выполняет работу:</p>
+        <p class="text-bold">Выполняет работу:</p>
         <ul class="page-title__list">
             <li v-for="task in tasks" :key="task"><span class="text-bold">-</span> {{ task }}</li>
         </ul>

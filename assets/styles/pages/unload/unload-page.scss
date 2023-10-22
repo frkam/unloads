@@ -4,16 +4,17 @@
 
     font-size: 14px;
     line-height: 1.2;
+    color: var(--color_blue_gray);
 
     display: grid;
     gap: 15px;
     grid-template-areas: 
         "title"
         "unload"
-        "tasks";
+        "orders";
 
     @include start-at(xslg) {
-        grid-template-areas: "title unload" "tasks unload";
+        grid-template-areas: "title unload" "orders unload";
         grid-template-columns: 35% 1fr;
     }
 
@@ -26,7 +27,7 @@
         height: fit-content;
     }
 
-    &__tasks {
-        grid-area: tasks;
+    &__orders {
+        grid-area: orders;
     }
 }

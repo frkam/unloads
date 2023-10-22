@@ -1,0 +1,14 @@
+.order-card {
+    padding: 15px;
+    border-left-width: 10px;
+    border-left-style: solid;
+    border-radius: 3px;
+
+    &[data-status=green] {
+        border-left-color: var(--color_success);
+    }
+
+    &[data-status=red] {
+        border-left-color: var(--color_danger);
+    } 
+}
