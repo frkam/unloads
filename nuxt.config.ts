@@ -1,4 +1,4 @@
-import eslintPlugin from 'vite-plugin-eslint'
+import eslintPlugin from "vite-plugin-eslint";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -9,8 +9,10 @@ export default defineNuxtConfig({
       baseURL: process.env.NUXT_PUBLIC_BASE_URL,
       apiBase: process.env.NUXT_PUBLIC_API_BASE,
       devToken: process.env.NUXT_PUBLIC_DEV_TOKEN
-    },
+    }
   },
+
+  modules: ["@vueuse/nuxt"],
 
   app: {
     head: {
@@ -21,11 +23,11 @@ export default defineNuxtConfig({
       title: "Кабинет Seenday",
 
       meta: [
-        { charset: "utf-8"},
-        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' },
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" },
         { hid: "description", name: "description", content: "" },
         { hid: "keywords", name: "keywords", content: "" },
-        { name: 'yandex-verification', content: '02181fad083eb12a' },
+        { name: "yandex-verification", content: "02181fad083eb12a" }
       ],
 
       link: [
@@ -34,15 +36,13 @@ export default defineNuxtConfig({
         { rel: "stylesheet", href: "/fonts/open-sans-semibold/stylesheet.css" },
         { rel: "stylesheet", href: "/fonts/pt-sans-regular/stylesheet.css" }
       ]
-    },
+    }
   },
 
-  css: ['~/assets/styles/main.scss'],
+  css: ["~/assets/styles/main.scss"],
 
   vite: {
-    plugins: [
-      eslintPlugin()
-    ],
+    plugins: [eslintPlugin()],
     css: {
       preprocessorOptions: {
         scss: {
@@ -53,4 +53,4 @@ export default defineNuxtConfig({
   },
 
   components: true
-})
+});

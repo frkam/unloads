@@ -8,9 +8,13 @@
         <div v-if="pending && status !== 'idle'">Загрузка...</div>
         <div v-else-if="order" class="block unload">
             <h3 class="text-16 text-bold">Ссылка для скачивания архива Выгрузки (.zip):</h3>
-            <div>
-                <a :href="downloadUrl" target="_blank" class="link base-margin-right">{{ downloadUrl }}</a>
-                <span class="span-link" @click="copyUrlToClipboard">скопировать ссылку</span>
+            <div class="flex gap-base">
+                <a :href="downloadUrl" target="_blank" class="link">{{ downloadUrl }}</a>
+                <div v-if="isSupported">
+                    <span v-if="downloadUrl && !copied" class="span-link" @click="copy(downloadUrl)">скопировать
+                        ссылку</span>
+                    <span v-else>ссылка скопирована</span>
+                </div>
             </div>
         </div>
         <div v-else-if="error">
@@ -21,6 +25,8 @@
 
 <script setup lang="ts">
 import { Order } from "~/types/order";
+
+const { copy, copied, isSupported } = useClipboard({ legacy: true })
 
 type OrdersListResponse = {
     response: {
@@ -53,8 +59,4 @@ const downloadUrl = computed(() => {
 
     return `https://seenday.com/${getIdFromDownloadLink(order.value?.download_link)}`
 })
-
-const copyUrlToClipboard = () => {
-    if (downloadUrl.value) navigator.clipboard.writeText(downloadUrl.value)
-}
 </script>
