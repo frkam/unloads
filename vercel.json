@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/lk/manager/unload",
+      "permanent": true
+    }
+  ]
+}
