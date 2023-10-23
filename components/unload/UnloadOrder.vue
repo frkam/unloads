@@ -1,12 +1,11 @@
 <template>
-    <div class="unload-page__unload">
-        <div v-if="!selectedOrderId" class="notice" data-color="light-purple">
-            Для того, чтобы посмотреть информацию о <span class="text-bold">выгрузке</span>, а также ее скачать, нажмите на
-            требуемую выгрузку в столбце слева
-        </div>
-
-        <div v-if="pending && status !== 'idle'">Загрузка...</div>
-        <div v-else-if="order" class="block unload">
+    <div v-if="!selectedOrderId" class="notice" data-color="light-purple">
+        Для того, чтобы посмотреть информацию о <span class="text-bold">выгрузке</span>, а также ее скачать, нажмите на
+        требуемую выгрузку в столбце слева
+    </div>
+    <div v-else class="block unload">
+        <div v-if="pending && status !== 'idle'"><i class="fa-solid fa-loader fa-spin" /> Загрузка...</div>
+        <div v-else-if="order">
             <h3 class="text-16 text-bold">Ссылка для скачивания архива Выгрузки (.zip):</h3>
             <div class="flex gap-base">
                 <a :href="downloadUrl" target="_blank" class="link">{{ downloadUrl }}</a>
@@ -25,6 +24,7 @@
 
 <script setup lang="ts">
 import { Order } from "~/types/order";
+import "~/assets/styles/pages/unload/unload.scss"
 
 const { copy, copied, isSupported } = useClipboard({ legacy: true })
 
@@ -57,6 +57,6 @@ const {
 const downloadUrl = computed(() => {
     if (!order.value?.download_link) return
 
-    return `https://seenday.com/${getIdFromDownloadLink(order.value?.download_link)}`
+    return `https://seenday.com/${getIdFromDownloadLink(order.value.download_link)}`
 })
 </script>
