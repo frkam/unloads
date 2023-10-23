@@ -24,6 +24,8 @@
 
     &__unload {
         grid-area: unload;
+        position: sticky;
+        top: 15px;
         height: fit-content;
     }
 

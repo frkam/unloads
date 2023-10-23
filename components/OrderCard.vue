@@ -12,5 +12,5 @@
 
 <script lang="ts" setup>
 import type { Order } from '~/types/order'
-const { order } = defineProps<{ order: Order }>()
+const { order } = defineProps<{ order: Omit<Order, "download_link" | "telegram"> }>()
 </script>
